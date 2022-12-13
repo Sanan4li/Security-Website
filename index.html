@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/tailwind.css" />
+    <title>TailwindCSS Boilerplate</title>
+  </head>
+  <body class="bg-gray-100">
+    <header class="bg-white">
+      <nav x-data="{ isOpen: false }" class="border-b">
+        <div
+          class="container mx-auto px-6 py-4 lg:flex lg:items-center lg:justify-between"
+        >
+          <div class="flex items-center justify-between">
+            <div>
+              <a
+                class="text-2xl font-bold hover:text-gray-700 lg:text-3xl"
+                href="#"
+                >Brand</a
+              >
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="flex lg:hidden">
+              <button
+                x-cloak
+                @click="isOpen = !isOpen"
+                type="button"
+                class="text-gray-500 hover:text-gray-600 focus:text-gray-600 focus:outline-none"
+                aria-label="toggle menu"
+              >
+                <svg
+                  x-show="!isOpen"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 8h16M4 16h16"
+                  />
+                </svg>
+
+                <svg
+                  x-show="isOpen"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+          <div
+            x-cloak
+            :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
+            class="absolute inset-x-0 z-20 w-full bg-white px-6 py-4 shadow-md transition-all duration-300 ease-in-out lg:relative lg:top-0 lg:mt-0 lg:flex lg:w-auto lg:translate-x-0 lg:items-center lg:bg-transparent lg:p-0 lg:opacity-100 lg:shadow-none"
+          >
+            <div
+              class="lg:-px-8 flex flex-col space-y-8 lg:flex-row lg:items-center lg:space-y-0"
+            >
+              <div
+                class="flex flex-col space-y-4 lg:mt-0 lg:flex-row lg:space-y-0"
+              >
+                <a
+                  class="font-semibold text-gray-700 hover:text-blue-500 lg:mx-6"
+                  href="#"
+                  >Home</a
+                >
+                <a
+                  class="font-semibold text-gray-700 hover:text-blue-500 lg:mx-6"
+                  href="#"
+                  >Services</a
+                >
+                <a
+                  class="font-semibold text-gray-700 hover:text-blue-500 lg:mx-6"
+                  href="#"
+                  >Testimonials</a
+                >
+                <a
+                  class="font-semibold text-gray-700 hover:text-blue-500 lg:mx-6"
+                  href="#"
+                  >About Us</a
+                >
+                <a
+                  class="font-semibold text-gray-700 hover:text-blue-500 lg:mx-6"
+                  href="#"
+                  >FAQ</a
+                >
+              </div>
+
+              <a
+                class="mt-4 block h-10 transform rounded-md border bg-blue-500 px-5 py-2 text-center text-sm capitalize text-white transition-colors duration-300 hover:bg-blue-600 lg:mt-0 lg:w-auto"
+                href="#"
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="container mx-auto flex flex-col space-y-6 px-6 py-10 lg:h-[32rem] lg:flex-row lg:items-center lg:py-16"
+      >
+        <div class="w-full lg:w-1/2">
+          <div class="lg:max-w-lg">
+            <h1 class="text-3xl font-bold tracking-wide lg:text-6xl">
+              Find the best
+              <span class="text-blue-500">Security Services</span> in dubai.
+            </h1>
+            <p class="mt-4 text-gray-600">
+              We work with the professional security guards to provide best
+              services to you.
+            </p>
+            <div class="mt-8 grid gap-6 sm:grid-cols-2">
+              <div class="-px-3 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-6 w-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                  />
+                </svg>
+                <span class="mx-3">Professional Gurads</span>
+              </div>
+
+              <div class="-px-3 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-6 w-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                  />
+                </svg>
+                <span class="mx-3">24/7 Support</span>
+              </div>
+
+              <div class="-px-3 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-6 w-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                  />
+                </svg>
+
+                <span class="mx-3">Latest Equipments</span>
+              </div>
+
+              <div class="-px-3 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-6 w-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                  />
+                </svg>
+
+                <span class="mx-3">100% Client Satisfaction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex h-96 w-full items-center justify-center lg:w-1/2">
+          <img
+            class="h-full w-full max-w-2xl rounded-md object-cover"
+            src="https://images.unsplash.com/photo-1555181126-cf46a03827c0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+            alt="glasses photo"
+          />
+        </div>
+      </div>
+    </header>
+    <div
+      class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20"
+    >
+      <div
+        class="mb-6 flex w-full flex-col md:mb-8 lg:flex-row lg:justify-between"
+      >
+        <div class="group mb-5 flex items-center md:mb-6 lg:max-w-xl">
+          <h2
+            class="font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl"
+          >
+            <span class="mb-2 inline-block">Our Services</span>
+            <div
+              class="bg-deep-purple-accent-400 scale-x-30 ml-auto h-1 origin-left transform duration-300 group-hover:scale-x-100"
+            ></div>
+          </h2>
+        </div>
+      </div>
+      <div class="row-gap-5 lg:row-gap-12 mb-8 grid gap-12 lg:grid-cols-3">
+        <div>
+          <img
+            class="mb-6 h-56 w-full rounded object-cover shadow-lg md:h-64 xl:h-80"
+            src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            alt=""
+          />
+          <p class="mb-2 text-xl font-bold capitalize leading-none sm:text-2xl">
+            EVENT SECURITY
+          </p>
+          <p class="text-gray-700">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium.
+          </p>
+        </div>
+        <div>
+          <img
+            class="mb-6 h-56 w-full rounded object-cover shadow-lg md:h-64 xl:h-80"
+            src="https://images.pexels.com/photos/3182750/pexels-photo-3182750.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            alt=""
+          />
+          <p class="mb-2 text-xl font-bold capitalize leading-none sm:text-2xl">
+            HOSPITAL SECURITY
+          </p>
+          <p class="text-gray-700">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium.
+          </p>
+        </div>
+        <div>
+          <img
+            class="mb-6 h-56 w-full rounded object-cover shadow-lg md:h-64 xl:h-80"
+            src="https://images.pexels.com/photos/3182746/pexels-photo-3182746.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            alt=""
+          />
+          <p class="mb-2 text-xl font-bold capitalize leading-none sm:text-2xl">
+            WAREHOUSE SECURITY
+          </p>
+          <p class="text-gray-700">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium.
+          </p>
+        </div>
+        <div>
+          <img
+            class="mb-6 h-56 w-full rounded object-cover shadow-lg md:h-64 xl:h-80"
+            src="https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            alt=""
+          />
+          <p class="mb-2 text-xl font-bold capitalize leading-none sm:text-2xl">
+            MALL SECURITY
+          </p>
+          <p class="text-gray-700">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium.
+          </p>
+        </div>
+        <div>
+          <img
+            class="mb-6 h-56 w-full rounded object-cover shadow-lg md:h-64 xl:h-80"
+            src="https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
+            alt=""
+          />
+          <p class="mb-2 text-xl font-bold capitalize leading-none sm:text-2xl">
+            HOTEL SECURITY
+          </p>
+          <p class="text-gray-700">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium.
+          </p>
+        </div>
+        <div>
+          <img
+            class="mb-6 h-56 w-full rounded object-cover shadow-lg md:h-64 xl:h-80"
+            src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            alt=""
+          />
+          <p class="mb-2 text-xl font-bold capitalize leading-none sm:text-2xl">
+            TEMPORARY GUARDS
+          </p>
+          <p class="text-gray-700">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium.
+          </p>
+        </div>
+      </div>
+    </div>
+    <section class="body-font bg-gray-50 text-gray-600">
+      <div class="container mx-auto px-5 py-24">
+        <div class="mb-20 text-center">
+          <h1
+            class="title-font mb-4 text-center text-2xl font-medium text-gray-900 sm:text-3xl"
+          >
+            Why us?
+          </h1>
+          <p class="mx-auto text-base leading-relaxed lg:w-3/4 xl:w-2/4">
+            Here are some reasons why people hire us. We are looking forward to
+            work with you in the future.
+          </p>
+        </div>
+        <div class="-mx-2 flex flex-wrap sm:mx-auto sm:mb-2 lg:w-4/5">
+          <div class="w-full p-2 sm:w-1/2">
+            <div class="flex h-full items-center rounded bg-white p-4">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                class="mr-4 h-6 w-6 flex-shrink-0 text-green-600"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span class="title-font font-medium"
+                >Authentic Cliche Forage</span
+              >
+            </div>
+          </div>
+          <div class="w-full p-2 sm:w-1/2">
+            <div class="flex h-full items-center rounded bg-white p-4">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                class="mr-4 h-6 w-6 flex-shrink-0 text-green-600"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span class="title-font font-medium"
+                >Kinfolk Chips Snackwave</span
+              >
+            </div>
+          </div>
+          <div class="w-full p-2 sm:w-1/2">
+            <div class="flex h-full items-center rounded bg-white p-4">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                class="mr-4 h-6 w-6 flex-shrink-0 text-green-600"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span class="title-font font-medium">Coloring Book Ethical</span>
+            </div>
+          </div>
+          <div class="w-full p-2 sm:w-1/2">
+            <div class="flex h-full items-center rounded bg-white p-4">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                class="mr-4 h-6 w-6 flex-shrink-0 text-green-600"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span class="title-font font-medium"
+                >Typewriter Polaroid Cray</span
+              >
+            </div>
+          </div>
+          <div class="w-full p-2 sm:w-1/2">
+            <div class="flex h-full items-center rounded bg-white p-4">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                class="mr-4 h-6 w-6 flex-shrink-0 text-green-600"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span class="title-font font-medium">Pack Truffaut Blue</span>
+            </div>
+          </div>
+          <div class="w-full p-2 sm:w-1/2">
+            <div class="flex h-full items-center rounded bg-white p-4">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                class="mr-4 h-6 w-6 flex-shrink-0 text-green-600"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                <path d="M22 4L12 14.01l-3-3"></path>
+              </svg>
+              <span class="title-font font-medium">The Catcher In The Rye</span>
+            </div>
+          </div>
+        </div>
+        <button
+          class="mx-auto mt-16 flex rounded border-0 bg-indigo-500 py-2 px-8 text-lg text-white hover:bg-indigo-600 focus:outline-none"
+        >
+          Contact Us
+        </button>
+      </div>
+    </section>
+    <div class="w-full bg-white">
+      <div
+        class="mx-auto bg-white px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-10"
+      >
+        <div class="row-gap-8 grid sm:grid-cols-3">
+          <div class="text-center">
+            <h6 class="text-deep-purple-accent-400 text-5xl font-bold">100+</h6>
+            <p class="font-bold">Active Guards</p>
+          </div>
+          <div class="text-center">
+            <h6 class="text-deep-purple-accent-400 text-5xl font-bold">50+</h6>
+            <p class="font-bold">Satisfied Customers</p>
+          </div>
+          <div class="text-center">
+            <h6 class="text-deep-purple-accent-400 text-5xl font-bold">40+</h6>
+            <p class="font-bold">Sites Covered</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="body-font bg-gray-100 text-gray-800">
+      <div class="container mx-auto px-5 py-24">
+        <h1 class="title-font mb-12 text-center text-4xl font-bold text-black">
+          Testimonials
+        </h1>
+        <div class="-m-4 flex flex-wrap">
+          <div class="w-full p-4 md:w-1/2">
+            <div class="h-full rounded bg-white bg-opacity-40 p-8">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="mb-4 block h-5 w-5 text-gray-700"
+                viewBox="0 0 975.036 975.036"
+              >
+                <path
+                  d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"
+                ></path>
+              </svg>
+              <p class="mb-6 leading-relaxed">
+                Synth chartreuse iPhone lomo cray raw denim brunch everyday
+                carry neutra before they sold out fixie 90's microdosing. Tacos
+                pinterest fanny pack venmo, post-ironic heirloom try-hard pabst
+                authentic iceland.
+              </p>
+              <a class="inline-flex items-center">
+                <img
+                  alt="testimonial"
+                  src="https://dummyimage.com/106x106"
+                  class="h-12 w-12 flex-shrink-0 rounded-full object-cover object-center"
+                />
+                <span class="flex flex-grow flex-col pl-4">
+                  <span class="title-font font-medium text-black"
+                    >Holden Caulfield</span
+                  >
+                  <span class="text-sm text-gray-500">UI DEVELOPER</span>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="w-full p-4 md:w-1/2">
+            <div class="h-full rounded bg-white bg-opacity-40 p-8">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="mb-4 block h-5 w-5 text-gray-700"
+                viewBox="0 0 975.036 975.036"
+              >
+                <path
+                  d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"
+                ></path>
+              </svg>
+              <p class="mb-6 leading-relaxed">
+                Synth chartreuse iPhone lomo cray raw denim brunch everyday
+                carry neutra before they sold out fixie 90's microdosing. Tacos
+                pinterest fanny pack venmo, post-ironic heirloom try-hard pabst
+                authentic iceland.
+              </p>
+              <a class="inline-flex items-center">
+                <img
+                  alt="testimonial"
+                  src="https://dummyimage.com/107x107"
+                  class="h-12 w-12 flex-shrink-0 rounded-full object-cover object-center"
+                />
+                <span class="flex flex-grow flex-col pl-4">
+                  <span class="title-font font-medium text-black"
+                    >Alper Kamu</span
+                  >
+                  <span class="text-sm text-gray-500">DESIGNER</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div
+      class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20"
+    >
+      <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
+        <div
+          class="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl"
+        >
+          <h2
+            class="mb-6 max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto"
+          >
+            Frequently Asked Questions
+          </h2>
+          <p class="text-base text-gray-700 md:text-lg">
+            Here are questions and answers people frequently asked to us.
+          </p>
+        </div>
+      </div>
+      <div class="max-w-screen-xl sm:mx-auto">
+        <div class="row-gap-8 grid grid-cols-1 gap-16 lg:grid-cols-2">
+          <div class="space-y-8">
+            <div>
+              <p class="mb-4 text-xl font-medium">
+                The quick, brown fox jumps over a lazy dog?
+              </p>
+              <p class="text-gray-700">
+                Space, the final frontier. These are the voyages of the Starship
+                Enterprise. Its five-year mission: to explore strange new
+                worlds.<br />
+                <br />
+                Many say exploration is part of our destiny, but it’s actually
+                our duty to future generations.
+              </p>
+            </div>
+            <div>
+              <p class="mb-4 text-xl font-medium">
+                The first mate and his Skipper too will do?
+              </p>
+              <p class="text-gray-700">
+                Well, the way they make shows is, they make one show. That
+                show's called a pilot.<br />
+                <br />
+                Then they show that show to the people who make shows, and on
+                the strength of that one show they decide if they're going to
+                make more shows. Some pilots get picked and become television
+                programs.Some don't, become nothing. She starred in one of the
+                ones that became nothing.
+              </p>
+            </div>
+            <div>
+              <p class="mb-4 text-xl font-medium">
+                Is the Space Pope reptilian!?
+              </p>
+              <p class="text-gray-700">
+                A flower in my garden, a mystery in my panties. Heart attack
+                never stopped old Big Bear. I didn't even know we were calling
+                him Big Bear.
+              </p>
+            </div>
+          </div>
+          <div class="space-y-8">
+            <div>
+              <p class="mb-4 text-xl font-medium">
+                How much money you got on you?
+              </p>
+              <p class="text-gray-700">
+                The first mate and his Skipper too will do their very best to
+                make the others comfortable in their tropic island nest.<br />
+                <br />
+                Michael Knight a young loner on a crusade to champion the cause
+                of the innocent. The helpless. The powerless in a world of
+                criminals who operate above the law. Here he comes Here comes
+                Speed Racer. He's a demon on wheels.
+              </p>
+            </div>
+            <div>
+              <p class="mb-4 text-xl font-medium">
+                Galaxies Orion's sword globular star cluster?
+              </p>
+              <p class="text-gray-700">
+                A business big enough that it could be listed on the NASDAQ goes
+                belly up. Disappears!<br />
+                <br />
+                It ceases to exist without me. No, you clearly don't know who
+                you're talking to, so let me clue you in.
+              </p>
+            </div>
+            <div>
+              <p class="mb-4 text-xl font-medium">
+                When has justice ever been as simple as a rule book?
+              </p>
+              <p class="text-gray-700">
+                This is not about revenge. This is about justice. A lot of
+                things can change in twelve years, Admiral. Well, that's
+                certainly good to know. About four years. I got tired of hearing
+                how young I looked.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="body-font bg-white text-gray-800">
+      <h2 class="py-10 text-center text-4xl font-bold">Contact Us</h2>
+      <div class="container mx-auto flex flex-wrap px-5 py-10 sm:flex-nowrap">
+        <div
+          class="relative flex items-end justify-start overflow-hidden rounded-lg bg-gray-100 p-10 sm:mr-10 md:w-1/2 lg:w-2/3"
+        >
+          <iframe
+            width="100%"
+            height="100%"
+            title="map"
+            class="absolute inset-0"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            scrolling="no"
+            src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+          ></iframe>
+          <div class="relative flex flex-wrap rounded bg-white py-6 shadow-md">
+            <div class="px-6 lg:w-1/2">
+              <h2
+                class="title-font text-xs font-semibold tracking-widest text-black"
+              >
+                ADDRESS
+              </h2>
+              <p class="mt-1">
+                Photo booth tattooed prism, portland taiyaki hoodie neutra
+                typewriter
+              </p>
+            </div>
+            <div class="mt-4 px-6 lg:mt-0 lg:w-1/2">
+              <h2
+                class="title-font text-xs font-semibold tracking-widest text-black"
+              >
+                EMAIL
+              </h2>
+              <a class="leading-relaxed text-indigo-400">example@email.com</a>
+              <h2
+                class="title-font mt-4 text-xs font-semibold tracking-widest text-black"
+              >
+                PHONE
+              </h2>
+              <p class="leading-relaxed">123-456-7890</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-8 flex w-full flex-col md:ml-auto md:mt-0 md:w-1/2 md:py-8 lg:w-1/3"
+        >
+          <h2 class="title-font mb-1 text-lg font-medium text-black">
+            Send us a message
+          </h2>
+          <p class="mb-5 text-xs leading-relaxed">
+            If you have any question, feel free to contact us.
+          </p>
+          <div class="relative mb-4">
+            <label for="name" class="text-sm leading-7 text-gray-400"
+              >Name</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="w-full rounded border border-gray-700 bg-white py-1 px-3 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900"
+            />
+          </div>
+          <div class="relative mb-4">
+            <label for="email" class="text-sm leading-7 text-gray-400"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="w-full rounded border border-gray-700 bg-white py-1 px-3 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900"
+            />
+          </div>
+          <div class="relative mb-4">
+            <label for="message" class="text-sm leading-7 text-gray-400"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              class="h-32 w-full resize-none rounded border border-gray-700 bg-white py-1 px-3 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900"
+            ></textarea>
+          </div>
+          <button
+            class="rounded border-0 bg-indigo-500 py-2 px-6 text-lg text-white hover:bg-indigo-600 focus:outline-none"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-white">
+      <div class="container mx-auto px-6 py-8">
+        <hr class="my-10 border-gray-200" />
+
+        <div class="flex flex-col items-center sm:flex-row sm:justify-between">
+          <p class="text-sm text-gray-700">
+            © Copyright 2021. All Rights Reserved.
+          </p>
+
+          <div class="-mx-2 mt-3 flex sm:mt-0">
+            <a
+              href="#"
+              class="mx-2 text-sm text-gray-700 transition-colors duration-300 hover:text-gray-500"
+              aria-label="Reddit"
+            >
+              Terms & Conditions
+            </a>
+
+            <a
+              href="#"
+              class="mx-2 text-sm text-gray-700 transition-colors duration-300 hover:text-gray-500"
+              aria-label="Reddit"
+            >
+              Privacy Policy
+            </a>
+
+            <a
+              href="#"
+              class="mx-2 text-sm text-gray-700 transition-colors duration-300 hover:text-gray-500"
+              aria-label="Reddit"
+            >
+              Cookies Policy
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
